@@ -1,0 +1,4 @@
+.claude/
+__pycache__/
+.vercel/
+_preview.html

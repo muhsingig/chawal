@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chawal Scrapbook</title>
+<meta name="description" content="a very cute, very messy scrapbook for chawal — muhsin, pavitra, hatim, hamza & tanya.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='50' cy='50' rx='18' ry='40' transform='rotate(35 50 50)' fill='%23fffaf0' stroke='%232b2320' stroke-width='6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee&family=Caveat:wght@400;600;700&family=Gochi+Hand&family=Shrikhand&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/social.css">
+<link rel="stylesheet" href="css/book.css">
+</head>
+<body>
+
+<!-- ═════════ svg kit: wobble filters + hand-drawn doodles ═════════ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="wob0"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="1"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+    <filter id="wob1"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+    <filter id="wob2"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="13"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+    <filter id="ink"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.1 1.62" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+    <pattern id="ricePat" width="70" height="70" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
+      <ellipse cx="14" cy="16" rx="3.4" ry="8" transform="rotate(30 14 16)" fill="#fffaf0" stroke="#c43a2f" stroke-width="1.4"/>
+      <ellipse cx="48" cy="40" rx="3.4" ry="8" transform="rotate(-25 48 40)" fill="#fffaf0" stroke="#c43a2f" stroke-width="1.4"/>
+      <ellipse cx="22" cy="56" rx="3.4" ry="8" transform="rotate(70 22 56)" fill="#fffaf0" stroke="#c43a2f" stroke-width="1.4"/>
+      <circle cx="56" cy="12" r="2.4" fill="#e2483d"/>
+    </pattern>
+  </defs>
+  <symbol id="d-heart" viewBox="0 0 100 100"><path d="M50 86C22 64 6 44 17 27 28 11 45 17 50 32 55 17 72 11 83 27 94 44 78 64 50 86Z"/><path d="M48 80C26 62 12 45 21 31 30 18 44 24 49 35" opacity=".6"/></symbol>
+  <symbol id="d-star" viewBox="0 0 100 100"><path d="M50 8 61 38 93 39 67 58 77 90 50 71 23 90 33 58 7 39 39 38Z"/></symbol>
+  <symbol id="d-sparkle" viewBox="0 0 100 100"><path d="M50 5C53 40 60 47 95 50 60 53 53 60 50 95 47 60 40 53 5 50 40 47 47 40 50 5Z"/></symbol>
+  <symbol id="d-swirl" viewBox="0 0 100 100"><path d="M52 52c5-6 13 0 9 8-5 9-21 7-21-6 0-16 24-21 32-6 9 16-4 36-24 34-22-2-32-24-24-42"/></symbol>
+  <symbol id="d-arrow" viewBox="0 0 100 100"><path d="M8 72C26 30 58 22 88 40M88 40 70 31M88 40 76 56"/></symbol>
+  <symbol id="d-crown" viewBox="0 0 100 100"><path d="M14 76 19 30 37 54 50 20 63 54 81 30 86 76Z"/><path d="M14 76H86"/><circle cx="50" cy="16" r="4"/><circle cx="19" cy="26" r="3"/><circle cx="81" cy="26" r="3"/></symbol>
+  <symbol id="d-flower" viewBox="0 0 100 100"><circle cx="50" cy="50" r="10"/><path d="M50 40C40 20 60 20 50 40M60 50C80 40 80 60 60 50M50 60C60 80 40 80 50 60M40 50C20 60 20 40 40 50M57 43C70 28 75 33 59 45M57 57C72 70 67 75 55 59M43 57C30 72 25 67 41 55M43 43C28 30 33 25 45 41"/></symbol>
+  <symbol id="d-snow" viewBox="0 0 100 100"><path d="M50 10V90M15 30 85 70M15 70 85 30M42 18 50 26 58 18M42 82 50 74 58 82"/></symbol>
+  <symbol id="d-ball" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38"/><path d="M50 36 63 45 58 61H42L37 45ZM50 36V14M63 45 84 38M58 61 70 80M42 61 30 80M37 45 16 38"/></symbol>
+  <symbol id="d-squiggle" viewBox="0 0 200 40"><path d="M4 26C20 6 32 6 44 24S70 40 84 20 112 4 126 22 152 38 166 18 190 8 196 16"/></symbol>
+  <symbol id="d-bowl" viewBox="0 0 100 100"><path d="M8 52H92C90 74 72 90 50 90S10 74 8 52Z"/><path d="M18 52C22 30 78 30 82 52"/><path d="M34 40l4-3M48 36l4 2M60 40l5-2M42 46l3-3M56 46l4 1M28 47l3-2M68 47l3-3"/></symbol>
+  <symbol id="d-grain" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="14" ry="36" transform="rotate(30 50 50)"/></symbol>
+  <symbol id="d-paddy" viewBox="0 0 100 160"><path d="M50 158C50 110 52 70 48 10"/><path d="M48 30c-10-4-14-12-12-20 8 2 12 10 12 20ZM49 46c10-4 15-12 13-20-8 2-13 10-13 20ZM48 60c-11-4-15-12-13-21 9 2 13 11 13 21ZM49 76c10-4 15-12 13-21-8 2-13 11-13 21ZM48 90c-10-4-14-12-12-20 8 2 12 10 12 20Z"/><path d="M50 150C30 120 18 110 6 104M50 140C70 116 82 108 96 104"/></symbol>
+  <symbol id="d-kiss" viewBox="0 0 100 60"><path d="M8 30C20 8 38 6 50 20 62 6 80 8 92 30 78 52 22 52 8 30Z"/><path d="M14 30C34 36 66 36 86 30"/></symbol>
+  <symbol id="d-candy" viewBox="0 0 100 100"><path d="M40 92V36C40 14 72 12 72 34"/><path d="M40 80l12-8M40 62l12-8M40 44l12-8M50 22l12 4"/></symbol>
+</svg>
+
+<!-- ═════════ loader ═════════ -->
+<div id="loader" aria-live="polite">
+  <svg class="loader-bowl" viewBox="0 0 100 100"><use href="#d-bowl"/></svg>
+  <div class="loader-text">cooking chawal<span class="dots"></span> <b id="loadPct">0</b>%</div>
+  <div class="loader-hint">(tap to skip the simmer)</div>
+</div>
+
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<!-- ═════════ the desk the book sits on ═════════ -->
+<div class="desk-scene" aria-hidden="true">
+  <div class="lamp-light"></div>
+  <div class="prop pencil"><i></i></div>
+  <div class="prop tape-roll tr1"></div>
+  <div class="prop tape-roll tr2"></div>
+  <div class="prop tape-roll tr3"></div>
+  <div class="prop mug"><i></i></div>
+  <div class="prop loose-photo lp1"><img src="assets/photos/p13.webp" alt=""></div>
+  <div class="prop loose-photo lp2"><img src="assets/photos/p09.webp" alt=""></div>
+  <div class="prop scissors"><svg viewBox="0 0 100 100"><circle cx="24" cy="72" r="13"/><circle cx="24" cy="30" r="13"/><path d="M35 64 92 22M35 38 92 80"/></svg></div>
+  <div class="prop clip"></div>
+  <div class="prop desk-note">open me<br>gently ↗<small>(it's fragile, like hatim)</small></div>
+  <div class="prop grains"></div>
+</div>
+
+<!-- ═════════ the book ═════════ -->
+<main class="stage" id="stage">
+  <div class="book-wrap" id="bookWrap">
+    <div class="book" id="book">
+      <div class="stack stack-l" id="stackL"></div>
+      <div class="stack stack-r" id="stackR"></div>
+      <div class="leaves" id="leaves"></div>
+      <div class="corner-hot hot-r" id="hotR" title="drag or tap to turn"></div>
+      <div class="corner-hot hot-l" id="hotL" title="drag or tap to go back"></div>
+      <nav class="ribbons" id="ribbons" aria-label="bookmarks"></nav>
+    </div>
+  </div>
+</main>
+
+<div class="book-nav" id="bookNav">
+  <button type="button" class="nav-btn" id="prevBtn" aria-label="previous page">&#8592;</button>
+  <button type="button" class="nav-where" id="whereBtn" aria-haspopup="true" aria-expanded="false"><span id="whereText">cover</span> <small>▾</small></button>
+  <button type="button" class="nav-btn" id="nextBtn" aria-label="next page">&#8594;</button>
+  <button type="button" class="nav-btn nav-sound" id="soundBtn" aria-label="page sounds on" aria-pressed="true">♪</button>
+  <div class="toc" id="toc" hidden></div>
+</div>
+
+<!-- ═════════ PAGES (the book engine moves these into leaves) ═════════ -->
+<div id="pages" hidden>
+
+<!-- 0 · FRONT COVER -->
+<article class="page page--cover" data-name="cover">
+  <div class="hinge"></div>
+  <div class="cover-label a drop" style="--x:62px;--y:96px;--w:470px;--r:-1.5deg">
+    <div class="print">
+      <svg class="print-arc" viewBox="0 0 400 120" aria-hidden="true">
+        <path id="arcPath" d="M-10 118C90 -18 310 -18 410 118" fill="none"/>
+        <text><textPath href="#arcPath" startOffset="50%" text-anchor="middle">PREMIUM · LONG GRAIN · FRIENDSHIP</textPath></text>
+      </svg>
+      <svg class="paddy paddy-l" viewBox="0 0 100 160"><use href="#d-paddy"/></svg>
+      <svg class="paddy paddy-r" viewBox="0 0 100 160"><use href="#d-paddy"/></svg>
+      <h1 class="brand">Chawal</h1>
+      <div class="print-sub">the scrapbook · vol. 1 · 25–26</div>
+      <div class="print-row"><span>NET WT. 5 GRAINS</span><span class="dot">●</span><span>BATCH Nº 001</span></div>
+      <div class="print-small">mfd. &amp; packed with love by <b>muhsin &amp; co.</b>, mumbai · best before: never</div>
+    </div>
+  </div>
+  <img class="a cover-sticker drop" src="assets/people/group-traditional.webp" alt="the five of chawal" style="--x:300px;--y:452px;--w:270px;--r:7deg;--d:.25s">
+  <div class="a price-tag drop" style="--x:24px;--y:540px;--r:-10deg;--d:.4s"><span>M.R.P.</span><b>priceless</b><small>incl. of all taxes &amp; drama</small></div>
+  <div class="a sack-stamp stamp-thunk" style="--x:96px;--y:670px;--r:-16deg">100%<br>pure<br>chaos</div>
+  <div class="elastic"></div>
+  <div class="cap cap-tr"></div><div class="cap cap-br"></div>
+</article>
+
+<!-- 1 · INSIDE COVER (endpaper) -->
+<article class="page page--endpaper" data-name="inside cover">
+  <svg class="endpaper-fill" aria-hidden="true"><rect width="100%" height="100%" fill="url(#ricePat)"/></svg>
+  <div class="bookplate a drop" style="--x:110px;--y:200px;--w:400px;--r:-2deg">
+    <div class="bp-head">ex libris</div>
+    <div class="bp-small">this book belongs to</div>
+    <div class="bp-name">chawal</div>
+    <div class="bp-line">muhsin · pavitra · hatim · hamza · tanya</div>
+    <div class="bp-foot">if found, return to the group chat.<br>reward: one (1) plate of rice.</div>
+  </div>
+  <div class="a sticky sticky--yellow drop" style="--x:330px;--y:560px;--w:230px;--r:6deg;--d:.3s"><p>note to self:</p><p>handle with sticky fingers only</p></div>
+</article>
+
+<!-- 2 · HELLO + CONTENTS -->
+<article class="page paper--lined" data-name="hello" data-tab="hello">
+  <span class="tape tape--yellow" style="--x:40px;--rot:-8deg"></span>
+  <div class="name-tag a drop" style="--x:110px;--y:54px;--w:330px;--r:-4deg">
+    <div class="name-tag-head">HELLO<small>my name is</small></div>
+    <div class="name-tag-name">chawal</div>
+  </div>
+  <p class="a hand write" style="--x:80px;--y:300px;--w:480px;font-size:36px;line-height:1.05;color:var(--red)">five people who should not be left unsupervised.</p>
+  <ol class="contents a drop" id="contents" style="--x:80px;--y:410px;--w:470px;--d:.2s"></ol>
+  <p class="a psst" style="--x:80px;--y:770px">psst: type <kbd>chawal</kbd> anywhere.</p>
+  <svg class="doodle doodle--red" style="--w:56px;right:38px;top:40px;--r:12deg"><use href="#d-heart"/></svg>
+</article>
+
+<!-- 3 · RECIPE CARD -->
+<article class="page paper--grid" data-name="the recipe" data-tab="recipe">
+  <h2 class="ransom a" data-text="the recipe" style="--x:0px;--y:40px;--w:620px"></h2>
+  <article class="recipe-card a drop" style="--x:40px;--y:170px;--w:540px;--r:-1.2deg">
+    <div class="recipe-head"><span class="typed">from the kitchen of:</span> <span class="hand">muhsin</span></div>
+    <h3 class="recipe-title">Chawal <small>(serves 5)</small></h3>
+    <h4 class="r-h">ingredients</h4>
+    <ul class="ingredients" id="ingredients">
+      <li class="star"><button>1 <b>Muhsin</b> — the rice. non-negotiable. no rice, no dish.</button></li>
+      <li><button>1 <b>Pavitra</b> — ghee, generously</button></li>
+      <li><button>1 <b>Hatim</b> — achaar, on the side (essential)</button></li>
+      <li><button>1 <b>Hamza</b> — dal, the classic pairing</button></li>
+      <li><button>1 <b>Tanya</b> — papad, for the crunch</button></li>
+      <li><button>a pinch of 2 a.m. voice notes</button></li>
+      <li><button>santa hats (seasonal)</button></li>
+    </ul>
+    <p class="hint">(tap to tick them off)</p>
+    <div class="coffee-ring" aria-hidden="true"></div>
+    <div class="approved stamp-thunk">MUHSIN<br>APPROVED</div>
+  </article>
+</article>
+
+<!-- 4 · METHOD -->
+<article class="page paper--grid" data-name="the method">
+  <div class="notebook-scrap a drop" style="--x:46px;--y:60px;--w:420px;--r:1.5deg">
+    <h4 class="r-h">method</h4>
+    <ol class="method">
+      <li>take one Muhsin. this is the base. everything sits on him.</li>
+      <li>add four people who cannot stop laughing at the same joke.</li>
+      <li>simmer at Dough &amp; Joe until the staff know your order.</li>
+      <li>stir in a World Cup final, a traditional day, and at least one red room.</li>
+      <li>never let it cool. serve hot, serve loud.</li>
+    </ol>
+  </div>
+  <div class="a sticky sticky--yellow drop" style="--x:330px;--y:520px;--w:250px;--r:5deg;--d:.25s">
+    <p>chef's note:</p>
+    <p>without the rice, it's just dal sitting alone on a plate. think about that.</p>
+  </div>
+  <svg class="a side-bowl" viewBox="0 0 100 100" style="--x:70px;--y:560px;--w:170px"><use href="#d-bowl"/></svg>
+  <svg class="doodle doodle--ink" style="--w:70px;left:230px;top:600px;--r:-30deg"><use href="#d-arrow"/></svg>
+</article>
+
+<!-- 5 · THE HEART (muhsin) -->
+<article class="page paper--kraft" data-name="meet the grains" data-tab="the 5">
+  <span class="tape tape--blue" style="--x:50px;--rot:-6deg"></span>
+  <h2 class="ransom a" data-text="meet the" style="--x:0px;--y:40px;--w:620px"></h2>
+  <svg class="strings" id="stringsL" aria-hidden="true"></svg>
+  <div class="heart-wrap a" id="heartWrap" style="--x:90px;--y:150px;--w:440px">
+    <svg class="crown" viewBox="0 0 100 100"><use href="#d-crown"/></svg>
+    <div class="heart-scribble">
+      <svg viewBox="0 0 100 100" class="hs hs1"><use href="#d-heart"/></svg>
+      <svg viewBox="0 0 100 100" class="hs hs2"><use href="#d-heart"/></svg>
+      <img id="heartImg" alt="Muhsin">
+    </div>
+    <div class="ribbon"><span>the heart of chawal</span></div>
+    <p class="heart-name"></p>
+    <p class="heart-line hand"></p>
+  </div>
+  <svg class="founder a stamp-thunk" viewBox="0 0 200 200" aria-label="founder stamp" style="--x:450px;--y:150px;--w:130px">
+    <path id="fpath" d="M100 100m-72 0a72 72 0 1 1 144 0a72 72 0 1 1-144 0" fill="none"/>
+    <text><textPath href="#fpath">★ FOUNDER ★ EST. 25–26 ★ CHAWAL ★ NO. 1 ★</textPath></text>
+    <text x="100" y="96" text-anchor="middle" class="f-big">Nº1</text>
+    <text x="100" y="124" text-anchor="middle" class="f-small">GRAIN</text>
+  </svg>
+</article>
+
+<!-- 6 · THE GRAINS -->
+<article class="page paper--kraft" data-name="the grains">
+  <span class="tape tape--pink" style="--x:460px;--rot:7deg"></span>
+  <h2 class="ransom a" data-text="grains" style="--x:0px;--y:40px;--w:620px"></h2>
+  <svg class="strings" id="stringsR" aria-hidden="true"></svg>
+  <div class="grains-grid a" id="grainsGrid" style="--x:40px;--y:150px;--w:540px"></div>
+  <p class="a flip-hint typed" style="--x:0px;--y:780px;--w:620px">↻ tap a polaroid to flip it</p>
+</article>
+
+<!-- 7 · CH1 L -->
+<article class="page paper--pink" data-name="ch.1 ho ho ho" data-tab="lore">
+  <div class="chapter-label a" style="--x:44px;--y:40px">chapter 01</div>
+  <h3 class="spread-title marker a write" style="--x:0px;--y:70px;--w:620px">ho ho <em>ho</em></h3>
+  <figure class="polaroid a drop" style="--x:60px;--y:210px;--w:480px;--r:-3deg">
+    <span class="tape tape--red" style="--x:180px;--rot:3deg"></span>
+    <img src="assets/photos/p01.webp" alt="chawal in santa hats" data-lb data-cap="santa hats: mandatory. tongues out: also mandatory." loading="lazy">
+    <figcaption>secret santa? more like secret chaos</figcaption>
+  </figure>
+  <svg class="doodle doodle--ink" style="--w:54px;right:40px;top:40px"><use href="#d-snow"/></svg>
+  <svg class="doodle doodle--red" style="--w:40px;left:40px;bottom:50px"><use href="#d-snow"/></svg>
+  <svg class="doodle doodle--yellow" style="--w:44px;right:70px;bottom:90px"><use href="#d-star"/></svg>
+</article>
+
+<!-- 8 · CH1 R -->
+<article class="page paper--pink" data-name="ch.1 ho ho ho">
+  <div class="a sticky sticky--yellow drop" style="--x:60px;--y:80px;--w:270px;--r:-4deg"><p>december edition:</p><p>santa hats were mandatory. tongues out were also, apparently, mandatory.</p></div>
+  <div class="gift-tag a drop" style="--x:350px;--y:110px;--w:200px;--r:9deg;--d:.15s"><b>to:</b> chawal<br><b>from:</b> santa<br><small>(it was muhsin)</small></div>
+  <div class="stamp-box a drop" style="--x:330px;--y:420px;--r:-6deg;--d:.25s"><div class="postage"><img src="assets/photos/p01.webp" alt="" loading="lazy" style="object-position:70% 40%"><span>CHAWAL POST · 25</span></div></div>
+  <p class="a hand write" style="--x:60px;--y:440px;--w:250px;font-size:30px;line-height:1.1">things we asked santa for:<br>1. more rice<br>2. less exams<br>3. a sixth member?? <s>no</s></p>
+  <svg class="doodle doodle--red" style="--w:64px;left:80px;bottom:60px;--r:-8deg"><use href="#d-candy"/></svg>
+  <svg class="doodle doodle--ink" style="--w:40px;right:50px;bottom:60px"><use href="#d-snow"/></svg>
+</article>
+
+<!-- 9 · CH2 L -->
+<article class="page paper--cream" data-name="ch.2 dressed up">
+  <svg class="garland" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 10Q500 140 1000 10" fill="none" stroke="#6f8f3a" stroke-width="3"/></svg>
+  <div class="chapter-label a" style="--x:44px;--y:110px">chapter 02</div>
+  <h3 class="spread-title marker a write" style="--x:0px;--y:136px;--w:620px">dressed <em>up,</em></h3>
+  <figure class="snap a drop" style="--x:150px;--y:270px;--w:320px;--r:2deg">
+    <img src="assets/photos/p02.webp" alt="chawal in kurtas" data-lb data-cap="kurtas ironed. attendance: 5 out of 5." loading="lazy">
+    <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+  </figure>
+  <svg class="doodle doodle--orange" style="--w:52px;left:50px;bottom:70px"><use href="#d-flower"/></svg>
+</article>
+
+<!-- 10 · CH2 R -->
+<article class="page paper--cream" data-name="ch.2 showed up">
+  <svg class="garland" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 10Q500 140 1000 10" fill="none" stroke="#6f8f3a" stroke-width="3"/></svg>
+  <h3 class="spread-title marker a write" style="--x:0px;--y:136px;--w:620px">showed <em>up</em></h3>
+  <figure class="torn a drop" style="--x:50px;--y:270px;--w:510px;--r:-2deg">
+    <img src="assets/photos/p11.webp" alt="talaash traditional day" data-lb data-cap="talaash traditional day — the fit check" loading="lazy">
+  </figure>
+  <div class="note-card a drop" style="--x:160px;--y:630px;--w:400px;--r:1.5deg;--d:.2s">
+    <p class="typed">talaash · traditional day</p>
+    <p class="hand">kurtas ironed, attendance: <b>5/5</b>. the one day we all looked like we had our lives together.</p>
+  </div>
+  <svg class="doodle doodle--orange" style="--w:44px;left:40px;bottom:60px"><use href="#d-flower"/></svg>
+</article>
+
+<!-- 11 · CH3 L -->
+<article class="page paper--sky" data-name="ch.3 vamos">
+  <span class="tape tape--blue" style="--x:420px;--rot:5deg"></span>
+  <div class="chapter-label a" style="--x:44px;--y:40px">chapter 03</div>
+  <h3 class="spread-title marker a write" style="--x:0px;--y:70px;--w:620px">vamos,</h3>
+  <figure class="postage-big a drop" style="--x:120px;--y:210px;--w:370px;--r:-2deg">
+    <img src="assets/photos/p04.webp" alt="chawal in argentina jerseys" data-lb data-cap="world cup final. five jerseys, one voice, zero chill." loading="lazy">
+    <span class="pm">WC FINAL · 2026</span>
+  </figure>
+  <svg class="doodle doodle--ink" style="--w:56px;right:40px;top:60px;--r:-12deg"><use href="#d-ball"/></svg>
+</article>
+
+<!-- 12 · CH3 R -->
+<article class="page paper--sky" data-name="ch.3 vamos">
+  <h3 class="spread-title marker a write" style="--x:0px;--y:70px;--w:620px"><em>chawal</em></h3>
+  <div class="ticket ticket--match a drop" style="--x:70px;--y:220px;--w:470px;--r:3deg">
+    <div class="ticket-l"><small>ADMIT</small><b>5</b></div>
+    <div class="ticket-r">
+      <div class="tm-title">FIFA WORLD CUP 2026 · FINAL</div>
+      <div><span>watch party</span><b>mumbai</b></div>
+      <div><span>seating</span><b>together, obviously</b></div>
+      <div><span>dress code</span><b>albiceleste</b></div>
+    </div>
+  </div>
+  <img class="cutout a drop" src="assets/people/group-argentina.webp" alt="cutout sticker of chawal in jerseys" style="--x:120px;--y:400px;--w:400px;--r:-4deg;--d:.2s" loading="lazy">
+  <svg class="doodle doodle--yellow" style="--w:44px;left:50px;bottom:70px"><use href="#d-star"/></svg>
+</article>
+
+<!-- 13 · CH4 L -->
+<article class="page paper--dot" data-name="ch.4 dough &amp; joe">
+  <span class="tape tape--yellow" style="--x:60px;--rot:-5deg"></span>
+  <div class="chapter-label a" style="--x:44px;--y:40px">chapter 04</div>
+  <h3 class="spread-title marker a write" style="--x:0px;--y:66px;--w:620px;font-size:70px">the <em>dough &amp; joe</em> era</h3>
+  <figure class="polaroid a drop" style="--x:40px;--y:270px;--w:290px;--r:-4deg">
+    <img src="assets/photos/p15.webp" alt="all we need is dough and joe" data-lb data-cap="all we need is dough & joe (and each other, fine)" loading="lazy">
+    <figcaption>unofficial HQ</figcaption>
+  </figure>
+  <figure class="polaroid polaroid--sm a drop" style="--x:350px;--y:300px;--w:230px;--r:5deg;--d:.15s">
+    <img src="assets/photos/p07.webp" alt="chawal on a retro tv" data-lb data-cap="we were on tv (sort of)" loading="lazy">
+    <figcaption>on tv!!</figcaption>
+  </figure>
+  <svg class="doodle doodle--ink" style="--w:76px;left:370px;top:560px;--r:30deg"><use href="#d-arrow"/></svg>
+</article>
+
+<!-- 14 · CH4 R -->
+<article class="page paper--dot" data-name="ch.4 dough &amp; joe">
+  <span class="tape tape--green" style="--x:440px;--rot:8deg"></span>
+  <figure class="polaroid polaroid--sm a drop" style="--x:50px;--y:60px;--w:280px;--r:-3deg">
+    <img src="assets/photos/p05.webp" alt="three friends at dough and joe" data-lb data-cap="the boys, before the order arrived" loading="lazy">
+    <figcaption>before the order</figcaption>
+  </figure>
+  <div class="receipt a drop" style="--x:360px;--y:80px;--w:220px;--r:-2deg;--d:.15s">
+    <div class="r-head">DOUGH &amp; JOE<br><small>table: ours, basically</small></div>
+    <div class="r-line"><span>5x laughing fits</span><span>₹0</span></div>
+    <div class="r-line"><span>1x "one more pic"</span><span>₹0</span></div>
+    <div class="r-line"><span>∞ inside jokes</span><span>₹0</span></div>
+    <div class="r-line"><span>split bill drama</span><span>₹₹₹</span></div>
+    <div class="r-total"><span>TOTAL</span><span>priceless</span></div>
+    <div class="r-foot">thank you, come again<br>(we will)</div>
+  </div>
+  <figure class="torn a drop" style="--x:70px;--y:420px;--w:400px;--r:2deg;--d:.25s">
+    <img src="assets/photos/p08.webp" alt="fairy lights and smiles" data-lb data-cap="fairy lights & bad jokes" loading="lazy">
+  </figure>
+  <svg class="doodle doodle--red" style="--w:44px;right:50px;bottom:60px"><use href="#d-heart"/></svg>
+</article>
+
+<!-- 15 · CH5 L -->
+<article class="page paper--red" data-name="ch.5 xoxo">
+  <div class="chapter-label a" style="--x:44px;--y:40px">chapter 05</div>
+  <h3 class="spread-title marker a write" style="--x:0px;--y:70px;--w:620px">xoxo,</h3>
+  <figure class="polaroid polaroid--dark a drop" style="--x:130px;--y:200px;--w:350px;--r:-2deg">
+    <span class="tape tape--black" style="--x:-14px;--rot:-35deg;--top:-6px"></span>
+    <span class="tape tape--black" style="--x:280px;--rot:35deg;--top:-6px"></span>
+    <img src="assets/photos/p10.webp" alt="chawal in a red room" data-lb data-cap="the red room. no further questions." loading="lazy">
+    <figcaption>the red room. no further questions.</figcaption>
+  </figure>
+  <svg class="doodle doodle--pink" style="--w:44px;left:40px;top:300px"><use href="#d-heart"/></svg>
+</article>
+
+<!-- 16 · CH5 R -->
+<article class="page paper--red" data-name="ch.5 xoxo">
+  <h3 class="spread-title marker a write" style="--x:0px;--y:70px;--w:620px"><em>chawal</em></h3>
+  <div class="love-note a drop" style="--x:80px;--y:220px;--w:420px;--r:4deg">
+    <p>dear chawal,</p>
+    <p>thanks for being the people i'd text first. in any emergency. or non-emergency. mostly non-emergencies.</p>
+    <p class="sig">xoxo</p>
+    <svg class="kiss" viewBox="0 0 100 60"><use href="#d-kiss"/></svg>
+  </div>
+  <svg class="doodle doodle--pink" style="--w:70px;right:50px;top:60px"><use href="#d-heart"/></svg>
+  <svg class="doodle doodle--white" style="--w:44px;left:90px;bottom:120px"><use href="#d-sparkle"/></svg>
+  <svg class="doodle doodle--pink" style="--w:36px;right:110px;bottom:90px"><use href="#d-heart"/></svg>
+</article>
+
+<!-- 17 · CH6 L -->
+<article class="page paper--navy" data-name="ch.6 nights out">
+  <span class="tape tape--yellow" style="--x:250px;--rot:2deg"></span>
+  <div class="chapter-label a" style="--x:44px;--y:40px">chapter 06</div>
+  <h3 class="spread-title marker a write" style="--x:0px;--y:70px;--w:620px">nights</h3>
+  <figure class="polaroid a drop" style="--x:150px;--y:190px;--w:290px;--r:3deg">
+    <img src="assets/photos/p03.webp" alt="dressed up for a night out" data-lb data-cap="dressed to impress, stayed for the food" loading="lazy">
+    <figcaption>dressed to impress</figcaption>
+  </figure>
+  <svg class="doodle doodle--yellow" style="--w:30px;left:60px;top:220px"><use href="#d-star"/></svg>
+  <svg class="doodle doodle--yellow" style="--w:24px;right:70px;top:330px"><use href="#d-sparkle"/></svg>
+</article>
+
+<!-- 18 · CH6 R -->
+<article class="page paper--navy" data-name="ch.6 nights out">
+  <h3 class="spread-title marker a write" style="--x:0px;--y:70px;--w:620px"><em>out</em></h3>
+  <div class="moon a drop" style="--x:450px;--y:60px" aria-hidden="true"></div>
+  <figure class="polaroid a drop" style="--x:70px;--y:200px;--w:330px;--r:-3deg;--d:.12s">
+    <img src="assets/photos/p14.webp" alt="full squad at a restaurant" data-lb data-cap="full squad. someone definitely blinked." loading="lazy">
+    <figcaption>full squad, zero blinks (we think)</figcaption>
+  </figure>
+  <p class="night-note hand a write" style="--x:400px;--y:560px;--w:200px">home by 12?<br><s>lol</s></p>
+  <svg class="doodle doodle--yellow" style="--w:36px;right:60px;bottom:60px"><use href="#d-star"/></svg>
+</article>
+
+<!-- 19 · CH7 L -->
+<article class="page paper--lined" data-name="ch.7 photo dump">
+  <span class="tape tape--pink" style="--x:60px;--rot:-7deg"></span>
+  <div class="chapter-label a" style="--x:70px;--y:40px">chapter 07</div>
+  <h3 class="spread-title marker a write" style="--x:0px;--y:70px;--w:620px">the <em>photo</em></h3>
+  <div class="booth a drop" style="--x:190px;--y:180px;--w:230px;--r:-3deg">
+    <img src="assets/photos/p12.webp" alt="snack break selfie" data-lb data-cap="snack break, mid-selfie" loading="lazy">
+    <img src="assets/photos/p13.webp" alt="too close to the camera" data-lb data-cap="too close to the camera (on purpose)" loading="lazy">
+    <img src="assets/photos/p06.webp" alt="blazer selfie" data-lb data-cap="blazers + attitude" loading="lazy">
+    <span>chawal booth · 3 for ₹0</span>
+  </div>
+  <svg class="doodle doodle--ink" style="--w:50px;left:80px;bottom:80px"><use href="#d-swirl"/></svg>
+</article>
+
+<!-- 20 · CH7 R -->
+<article class="page paper--lined" data-name="ch.7 photo dump">
+  <h3 class="spread-title marker a write" style="--x:0px;--y:70px;--w:620px"><em>dump</em></h3>
+  <div class="rider a drop" style="--x:40px;--y:190px;--w:290px">
+    <img class="cutout" src="assets/people/horse-rider.webp" alt="cutout of a friend on a carousel horse" data-lb-src="assets/photos/p09.webp" loading="lazy">
+    <div class="bubble">yeehaw.</div>
+  </div>
+  <div class="a sticky sticky--green drop" style="--x:350px;--y:190px;--w:230px;--r:-4deg;--d:.15s"><p>rule of chawal photos:</p><p>the blurry ones are the best ones.</p></div>
+  <div class="chat a drop" style="--x:270px;--y:440px;--w:310px;--r:3deg;--d:.25s">
+    <div class="chat-head"><i class="chat-av">c</i><div><b>chawal</b><small>muhsin, pavitra, hatim, hamza, tanya</small></div></div>
+    <div class="chat-body">
+      <p class="in"><b>hamza</b>who has the pics from last night</p>
+      <p class="in"><b>tanya</b>send them all</p>
+      <p class="in"><b>pavitra</b>delete the ugly ones first</p>
+      <p class="in"><b>hatim</b>they're all ugly</p>
+      <p class="out">perfect. scrapbooking every one<span>2:51 am &#10003;&#10003;</span></p>
+    </div>
+  </div>
+</article>
+
+<!-- 21 · PLANS L (calendar) -->
+<article class="page paper--cal" data-name="plan it" data-tab="plans" data-hash="plans">
+  <div class="spiral"></div>
+  <h2 class="ransom a" data-text="plan it" style="--x:0px;--y:46px;--w:620px"></h2>
+  <div class="conn a" data-conn style="--x:0px;--y:150px;--w:620px"></div>
+  <div class="cal a" data-noswipe style="--x:34px;--y:200px;--w:552px">
+    <div class="cal-head">
+      <button type="button" id="calPrev" aria-label="previous month">&lsaquo;</button>
+      <h3 id="calMonth"></h3>
+      <button type="button" id="calNext" aria-label="next month">&rsaquo;</button>
+    </div>
+    <div class="cal-dow"><span>mon</span><span>tue</span><span>wed</span><span>thu</span><span>fri</span><span>sat</span><span>sun</span></div>
+    <div class="cal-grid" id="calGrid"></div>
+  </div>
+</article>
+
+<!-- 22 · PLANS R -->
+<article class="page paper--cal" data-name="plan it">
+  <div class="spiral"></div>
+  <form class="quick a drop" id="quickForm" autocomplete="off" style="--x:40px;--y:60px;--w:540px;--r:-1deg">
+    <label for="quickInput" class="typed">quick plan</label>
+    <input id="quickInput" type="text" maxlength="120" placeholder="20 nov karaoke night 8pm at the usual">
+    <button type="submit">pin it &rarr;</button>
+  </form>
+  <div class="upnext a" style="--x:60px;--y:230px;--w:500px">
+    <h3 class="hand">up next</h3>
+    <div id="upNext"></div>
+  </div>
+  <p class="a how-note hand" style="--x:60px;--y:720px;--w:500px">pin a plan → everyone picked gets an email, a calendar invite &amp; a reminder the day before ✉</p>
+</article>
+
+<!-- 23 · DESK L (sticker sheet) -->
+<article class="page paper--kraft" data-name="the messy desk" data-tab="desk">
+  <h2 class="ransom a" data-text="messy desk" style="--x:0px;--y:46px;--w:620px"></h2>
+  <p class="a hand" style="--x:60px;--y:160px;--w:500px;font-size:28px;text-align:center">drag everything on the corkboard. slap stickers on it. it remembers.</p>
+  <div class="sticker-sheet a drop" style="--x:70px;--y:260px;--w:480px;--r:-2deg">
+    <div class="ss-title typed">chawal sticker sheet · peel &amp; stick</div>
+    <div class="tray" id="tray" aria-label="sticker tray"></div>
+  </div>
+  <div class="desk-btns a" style="--x:70px;--y:690px;--w:480px">
+    <button id="shuffleBtn" type="button">shuffle</button>
+    <button id="clearBtn" type="button">peel off stickers</button>
+  </div>
+</article>
+
+<!-- 24 · DESK R (corkboard) -->
+<article class="page paper--cork" data-name="the messy desk">
+  <div class="desk a" id="deskArea" data-noswipe style="--x:24px;--y:24px;--w:572px"></div>
+</article>
+
+<!-- 25 · TAPES L -->
+<article class="page paper--night" data-name="screening room" data-tab="tapes">
+  <h2 class="ransom ransom--light a" data-text="screening" style="--x:0px;--y:46px;--w:620px"></h2>
+  <div class="tv a" id="tv" style="--x:40px;--y:200px;--w:540px">
+    <div class="tv-screen">
+      <video id="tvVideo" playsinline controls preload="none"></video>
+      <div class="tv-static" id="tvStatic"><span>insert tape</span></div>
+      <div class="scanlines"></div>
+    </div>
+    <div class="tv-panel">
+      <div class="tv-brand">CHAWAL-VISION</div>
+      <div class="tv-knobs"><i></i><i></i></div>
+      <div class="tv-label" id="tvLabel">ch. 00 — no signal</div>
+    </div>
+  </div>
+  <p class="a hand light" style="--x:40px;--y:640px;--w:540px;font-size:26px;text-align:center">pick a tape from the shelf → pop it in.</p>
+</article>
+
+<!-- 26 · TAPES R -->
+<article class="page paper--night" data-name="screening room">
+  <h2 class="ransom ransom--light a" data-text="room" style="--x:0px;--y:46px;--w:620px"></h2>
+  <div class="shelf a" id="shelf" style="--x:60px;--y:200px;--w:500px"></div>
+</article>
+
+<!-- 27 · GUESTBOOK L -->
+<article class="page paper--lined" data-name="the guestbook" data-tab="guests" data-hash="guestbook">
+  <span class="tape tape--blue" style="--x:60px;--rot:-5deg"></span>
+  <h2 class="ransom a" data-text="guestbook" style="--x:0px;--y:36px;--w:620px"></h2>
+  <div class="conn a" data-conn style="--x:0px;--y:128px;--w:620px"></div>
+  <form class="gb-compose a" id="gbForm" autocomplete="off" data-noswipe style="--x:80px;--y:176px;--w:460px">
+    <div class="gb-who typed">signing as <button type="button" class="who-btn" id="gbWho">pick your name</button></div>
+    <textarea id="gbText" maxlength="280" rows="2" placeholder="dear chawal..."></textarea>
+    <div class="gb-pad">
+      <canvas id="gbCanvas" width="600" height="340" aria-label="doodle pad"></canvas>
+      <span class="gb-pad-hint hand" id="gbHint">doodle here ✎</span>
+    </div>
+    <div class="gb-tools">
+      <div class="pens" id="gbPens"></div>
+      <div class="gb-tool-btns">
+        <button type="button" id="gbSize" title="pen size">thin</button>
+        <button type="button" id="gbUndo">undo</button>
+        <button type="button" id="gbClear">clear</button>
+      </div>
+    </div>
+    <div class="gb-row"><div class="gb-papers" id="gbPapers" aria-label="paper colour"></div><button class="tear-btn gb-send" type="submit">stick it in</button></div>
+    <p class="gb-status typed" id="gbStatus" role="status"></p>
+  </form>
+</article>
+
+<!-- 28 · GUESTBOOK R -->
+<article class="page paper--lined" data-name="the guestbook">
+  <span class="tape tape--yellow" style="--x:440px;--rot:6deg"></span>
+  <div class="gb-wall a" id="gbWall" data-noswipe style="--x:30px;--y:40px;--w:560px"></div>
+</article>
+
+<!-- 29 · FIN -->
+<article class="page page--fin" data-name="fin." data-tab="fin">
+  <p class="a typed" style="--x:0px;--y:110px;--w:620px;text-align:center;font-size:16px">and that's the whole pot.</p>
+  <h2 class="fin-title a write" style="--x:0px;--y:140px;--w:620px">fin<span>.</span></h2>
+  <p class="a hand" style="--x:0px;--y:380px;--w:620px;text-align:center;font-size:30px">(for now. there's always more rice.)</p>
+  <svg class="signature a" viewBox="0 0 400 120" aria-label="signed, chawal" style="--x:130px;--y:440px;--w:360px">
+    <path pathLength="1" d="M20 80C40 30 60 30 56 70S40 100 70 80 96 40 100 60 110 90 130 70 150 40 160 60 170 90 200 70C215 58 220 50 232 60S240 90 262 66C276 52 286 58 290 72S310 84 326 60 350 40 360 70 380 86 392 62"/>
+  </svg>
+  <div class="a" style="--x:0px;--y:600px;--w:620px;text-align:center"><button class="throw-btn" id="throwBtn" type="button"><svg viewBox="0 0 100 100"><use href="#d-bowl"/></svg> throw chawal</button></div>
+  <p class="a typed" style="--x:0px;--y:740px;--w:620px;text-align:center;font-size:12px;opacity:.8">made with love, glue sticks &amp; way too much rice · est. by muhsin</p>
+</article>
+
+<!-- 30 · INSIDE BACK COVER -->
+<article class="page page--endpaper" data-name="inside back cover">
+  <svg class="endpaper-fill" aria-hidden="true"><rect width="100%" height="100%" fill="url(#ricePat)"/></svg>
+  <div class="pocket" id="pocket">
+    <div class="pocket-card" id="pocketCard">
+      <p class="typed">a letter, tucked in the back</p>
+      <p class="hand">to whoever is reading this:<br>you're in chawal now. there are no refunds, no exits, and the group chat never sleeps.<br>love, the rice. ♥</p>
+    </div>
+    <div class="pocket-front"><span>pull me</span></div>
+  </div>
+</article>
+
+<!-- 31 · BACK COVER -->
+<article class="page page--cover page--back" data-name="back cover">
+  <div class="hinge"></div>
+  <div class="barcode a" style="--x:380px;--y:640px;--w:180px;--r:-2deg">
+    <div class="bars"></div>
+    <span>CHAWAL · 5 GRAINS · 25–26</span>
+  </div>
+  <p class="a back-blurb hand" style="--x:80px;--y:200px;--w:460px">"the best thing to happen to rice since salt." <small>— probably someone</small></p>
+  <div class="elastic"></div>
+  <div class="cap cap-tl"></div><div class="cap cap-bl"></div>
+</article>
+
+</div>
+
+<!-- modal (plans, guestbook, who-are-you) -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-card" id="modalCard" role="dialog" aria-modal="true"></div>
+</div>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="photo" hidden>
+  <figure>
+    <img id="lbImg" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button class="lb-close" id="lbClose" aria-label="close">×</button>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/book.js"></script>
+<script src="js/app.js"></script>
+<script src="js/backend.js"></script>
+<script src="js/social.js"></script>
+</body>
+</html>
