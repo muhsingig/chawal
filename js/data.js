@@ -7,7 +7,7 @@ window.CHAWAL = {
      while it's empty the guestbook + calendar run in demo mode: saved on this device only. */
   backend: 'https://script.google.com/macros/s/AKfycby4xdiVYsJrDbUXQw6sRTTOf--d3G9NTHYylDz-zyJIeWgT2BtfWHBZsYjGjBZnvueW8w/exec',
   /* the live link to this scrapbook, used in WhatsApp messages */
-  siteUrl: '',
+  siteUrl: 'https://chawal-wine.vercel.app',
 
   /* the heart. the rice. the reason. */
   heart: {
