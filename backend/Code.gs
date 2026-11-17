@@ -25,7 +25,7 @@ const CONFIG = {
 /* ═══════════════ one-time setup (run this once from the editor) ═══════════════ */
 function setup() {
   const ss = CONFIG.SHEET_ID ? SpreadsheetApp.openById(CONFIG.SHEET_ID) : SpreadsheetApp.getActiveSpreadsheet();
-  if (!ss) throw new Error('Set CONFIG.SHEET_ID to the Google Sheet's id.');
+  if (!ss) throw new Error('Set CONFIG.SHEET_ID to the id of the Google Sheet.');
   PropertiesService.getScriptProperties().setProperty('SHEET_ID', ss.getId());
   sheet_('notes', NOTE_COLS);
   sheet_('plans', PLAN_COLS);
@@ -202,29 +202,40 @@ function mail_(names, subject, html) {
 }
 
 function planEmail_(p, headline, lead) {
+  // table layout + inline styles only: this is what Gmail / Outlook / phone mail apps render reliably
+  const F = "font-family:Georgia,'Times New Roman',serif;";
+  const M = "font-family:'Courier New',Courier,monospace;";
   const who = p.invited.map((n) => {
     const s = p.rsvp[n];
-    const mark = s === 'in' ? '✅' : s === 'maybe' ? '🤔' : s === 'out' ? '❌' : '·';
-    return `<span style="display:inline-block;margin:2px 4px;padding:3px 10px;border-radius:99px;background:#fff;border:2px solid #2b2320">${mark} ${esc_(n)}</span>`;
+    const mark = s === 'in' ? '✅' : s === 'maybe' ? '🤔' : s === 'out' ? '❌' : '•';
+    return `<span style="display:inline-block;white-space:nowrap;margin:0 6px 6px 0;padding:4px 12px;border-radius:99px;background:#ffffff;color:#2b2320;border:2px solid #2b2320;font-size:14px;${F}">${mark}&nbsp;${esc_(n)}</span>`;
   }).join('');
+  const row = (k, v) => `<tr><td valign="top" style="padding:4px 14px 4px 0;width:92px;color:#b2281f;font-size:15px;${F}">${k}</td><td valign="top" style="padding:4px 0;color:#2b2320;font-size:16px;font-weight:bold;${F}">${v}</td></tr>`;
   const site = siteUrl_();
-  const link = site ? `<p style="text-align:center;margin:22px 0 4px"><a href="${esc_(site)}#plans" style="background:#e2483d;color:#fff;text-decoration:none;padding:12px 22px;border-radius:99px;font-weight:bold;border:3px solid #2b2320">open the chawal calendar →</a></p>` : '';
+  const button = site ? `
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:22px auto 6px;border-collapse:separate">
+            <tr><td align="center" bgcolor="#e2483d" style="background:#e2483d;border:3px solid #2b2320;border-radius:999px">
+              <a href="${esc_(site)}#plans" style="display:inline-block;padding:12px 24px;color:#ffffff;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;white-space:nowrap;line-height:20px">open the calendar&nbsp;&rarr;</a>
+            </td></tr>
+          </table>` : '';
   return `
-  <div style="background:#2c6e57;padding:26px 12px;font-family:Georgia,serif">
-    <div style="max-width:520px;margin:0 auto;background:#fbf5e8;border-radius:6px;padding:26px 26px 22px;color:#2b2320;box-shadow:0 10px 30px rgba(0,0,0,.3)">
-      <div style="font-family:'Courier New',monospace;font-size:12px;letter-spacing:2px;color:#b2281f;text-transform:uppercase">${esc_(headline)}</div>
-      <h1 style="font-size:34px;margin:6px 0 4px;line-height:1.05">${esc_(p.title)}</h1>
-      <p style="margin:0 0 14px;font-size:15px;color:#5b4d45">${esc_(lead)}</p>
-      <table style="font-size:16px;border-collapse:collapse;margin-bottom:12px">
-        <tr><td style="padding:3px 12px 3px 0;color:#b2281f">when</td><td><b>${esc_(prettyDate_(p))}</b></td></tr>
-        ${p.place ? `<tr><td style="padding:3px 12px 3px 0;color:#b2281f">where</td><td><b>${esc_(p.place)}</b></td></tr>` : ''}
-        ${p.by ? `<tr><td style="padding:3px 12px 3px 0;color:#b2281f">planned by</td><td>${esc_(p.by)}</td></tr>` : ''}
-      </table>
-      ${p.details ? `<p style="background:#ffe680;padding:10px 14px;transform:rotate(-1deg);font-size:15px">${esc_(p.details)}</p>` : ''}
-      <div style="margin-top:10px;font-size:14px">${who}</div>
-      ${link}
-      <p style="font-family:'Courier New',monospace;font-size:11px;color:#8a7a70;text-align:center;margin:18px 0 0">sent by the chawal scrapbook · est. by muhsin</p>
-    </div>
+  <div style="margin:0;padding:18px 10px;background:#2c6e57">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fbf5e8" style="max-width:520px;margin:0 auto;background:#fbf5e8;border-radius:10px;border-collapse:separate">
+      <tr><td style="padding:24px 20px 20px;color:#2b2320;${F}">
+          <div style="${M}font-size:12px;letter-spacing:2px;color:#b2281f;text-transform:uppercase">${esc_(headline)}</div>
+          <h1 style="margin:8px 0 6px;font-size:28px;line-height:1.15;color:#2b2320;font-weight:bold;${F}word-wrap:break-word">${esc_(p.title)}</h1>
+          <p style="margin:0 0 16px;font-size:15px;line-height:1.4;color:#5b4d45;${F}">${esc_(lead)}</p>
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0 0 14px">
+            ${row('when', esc_(prettyDate_(p)))}
+            ${p.place ? row('where', esc_(p.place)) : ''}
+            ${p.by ? row('planned by', esc_(p.by)) : ''}
+          </table>
+          ${p.details ? `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0 0 14px"><tr><td bgcolor="#ffe680" style="background:#ffe680;padding:12px 14px;border-left:5px solid #f2b632;color:#2b2320;font-size:15px;line-height:1.4;${F}">${esc_(p.details)}</td></tr></table>` : ''}
+          <div style="margin:4px 0 0;line-height:1">${who}</div>
+          ${button}
+          <p style="margin:18px 0 0;${M}font-size:11px;line-height:1.5;color:#8a7a70;text-align:center">sent by the chawal scrapbook &middot; est. by muhsin</p>
+      </td></tr>
+    </table>
   </div>`;
 }
 
