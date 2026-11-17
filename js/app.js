@@ -442,7 +442,7 @@
     const now = Math.min(100, Math.max(+pctEl.textContent, Math.round(target)));
     pctEl.textContent = now;
     if ((now >= 100 && el > 1100) || el > 5000) finish();
-    else requestAnimationFrame(step);
+    else setTimeout(step, 30);
   })();
   loader.addEventListener('click', finish);
 })();
